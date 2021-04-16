@@ -1,0 +1,111 @@
+<div class="container">
+    <!-- Sidebar -->
+    <div class="container__sidebar">
+        <h1><a href="#" class="logo">Empreintes</a></h1>
+        <ul>
+          <li><%= link_to 'PRODUCT', product_items_path, method: :get, class: "sec" %></li>
+          <li><a href="#vision-title" class="sec">VISION</a></li>
+          <li><a href="#about" class="sec">ABOUT</a></li>
+          <li><a href="#gallery" class="sec">GALLERY</a></li>
+        </ul>
+
+      <div class="btn-wrap">
+        <% if user_signed_in? %>
+        <div class="btn">
+          <%= link_to current_user.nickname, "#", class: "btn-handwriting" %>
+        </div>
+
+        <div class="btn">
+          <%= link_to "LogOut", destroy_user_session_path, class: "btn-handwriting", method: :delete %>
+        </div>
+        <% elsif admin_signed_in?%> 
+          <%= link_to "Degain", new_item_path, class: "btn-handwriting"%>
+          <%= link_to "LogOut", destroy_admin_session_path, class: "btn-handwriting", method: :delete %>
+        <% else %>
+
+        <div class="btn">
+          <%= link_to 'Loin', new_user_session_path, class: "btn-handwriting" %>
+        </div>
+
+        <div class="btn">
+          <%= link_to 'SignUp', new_user_registration_path, class: "btn-handwriting" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="side-null"></div>
+
+    <!-- Main -->
+    <main class="container__main">
+        <div id="fondo">
+        </div>
+        <div id="encima"></div>
+        <div class="null"></div>
+
+        <!-- vision -->
+        <div id="vision-title">
+          <header>
+            <h2>VISION</h2>
+          </header>
+          <div class="vision">
+            ちかごろ世間で日本歴史の科学的研究ということがしきりに叫ばれている。科学的研究というのが近代史学の学問的方法による研究という意義であるならば、これは史学の学徒の間においては一般に行われていることであるから、今さらこと新しくいうには及ばないはずである。上にいったようなことがらについては、曖昧あいまいな態度をとり、または真実でない知識を強いて注入していたことも、明かな事実である。
+          </div>
+        </div>
+
+        <!-- about -->
+        <div id="about">
+          <h2>ABOUT</h2>
+          <div class="about-content">
+            <div class="about-image">
+              <%= image_tag "https://cdn.pixabay.com/photo/2014/09/03/20/15/shoes-434918__340.jpg", class:"about-img"%>
+            </div>
+            <div class="about-text">
+              <h2>CONCEPT</h2>
+              <p>楽しみ、心を踊らせる靴をあなたの手に楽しみ、心を踊らせる靴をあなたの手に楽しみ、心を踊らせる靴をあなたの手に楽しみ、心を踊らせる靴をあなたの手に楽しみ、心を踊らせる靴をあなたの手に楽しみ、心を踊らせる靴をあなたの手に楽しみ、心を踊らせる靴をあなたの手に</p>
+            </div>
+          </div>
+          <div class="about-content">
+            <div class="about-text">
+              <h2>METHOD OF PAYMENT</h2>
+              <p>さまざまな支払い方法に対応さまざまな支払い方法に対応さまざまな支払い方法に対応さまざまな支払い方法に対応さまざまな支払い方法に対応さまざまな支払い方法に対応さまざまな支払い方法に対応</p>
+            </div>
+            <div class="about-image">
+              <%= image_tag "https://cdn.pixabay.com/photo/2017/12/01/21/44/money-2991837_960_720.jpg", class:"about-img"%>
+            </div>
+          </div>
+          <div class="about-content">
+            <div class="about-image">
+              <%= image_tag "https://cdn.pixabay.com/photo/2018/08/16/21/15/shoemaking-3611509__340.jpg", class:"about-img"%>
+            </div>
+            <div class="about-text">
+              <h2>MATERIAL</h2>
+              <p>素材にこだわり、履くほどあじが出る素材にこだわり、履くほどあじが出る素材にこだわり、履くほどあじが出る素材にこだわり、履くほどあじが出る素材にこだわり、履くほどあじが出る素材にこだわり、履くほどあじが出る</p>
+            </div>
+          </div>
+        </div>
+
+        <!--gallery-->
+
+        <div id="gallery">
+          <h2>GALLERY</h2>
+          <div class="loop_wrap">
+            <%= image_tag "gallery.jpg"%><%= image_tag "gallery.jpg"%>
+          </div>
+        </div>
+
+        <!-- footer -->
+
+        <footer>
+          <div class="copyright">
+            <p>© 2021 - Empreintes</p>
+          </div>
+          <div class="sns">
+            <a href="#" class="contact">Contact</a>
+            <a href="#" class="fb"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></a>
+            <a href="#" class="tw"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></a>
+            <a href="#" class="insta"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></a>
+          </div>
+        </footer>
+
+    </main>
+</div>

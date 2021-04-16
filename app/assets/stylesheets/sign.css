@@ -1,0 +1,61 @@
+.form {
+  width: 40%;
+  height: 100vh;
+  padding-top: 40px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'Caveat', cursive;
+}
+
+.input {
+  width: 100%;
+  background: transparent;
+  border-bottom: solid 1px #fc7609;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 1.5rem;
+  padding: 0.3em 0.2em;
+  transition: all 0.4s;
+  color: #000000;;
+  margin: 0.7rem 0;
+}
+.input:focus {
+  background: #b8b8b8;
+  transform: scale3d(1.06,1.06,1.06);
+}
+
+.button {
+  background: transparent;
+  width: 50%;
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  border: solid 1px #f78529;
+  padding: 0.7em 0;
+  color: #141414;
+  transition: all 0.6s;
+}
+.button:hover {
+  cursor:pointer;
+  background: #ee8869;
+}
+
+.sign {
+  color: #0c0c0c;
+  border-bottom: solid 1px #fd7323;
+  padding: 0 0 0.8em 0;
+  width: 50%;
+  margin-top: 10%;
+  margin-left: 25%;
+  margin-bottom: 1em;
+}
+@media (max-width: 550px) {
+  form {
+  width: 90%;
+  margin-left: 3%;
+  padding-top: 5%;
+}
+  .input {
+    font-size: 1em;
+  }
+}

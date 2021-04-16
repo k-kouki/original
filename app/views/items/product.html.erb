@@ -1,0 +1,74 @@
+<div class="container">
+    <!-- Sidebar -->
+    <div class="container__sidebar">
+      <h1><a href="/" class="logo">Empreintes</a></h1>
+      <ul>
+        <li><%= link_to 'PRODUCT', product_items_path, method: :get, class: "sec" %></li>
+        <li><a href="/" class="sec">VISION</a></li>
+        <li><a href="/" class="sec">ABOUT</a></li>
+        <li><a href="/" class="sec">GALLERY</a></li>
+      </ul>
+
+      <div class="btn-wrap">
+        <% if user_signed_in? %>
+        <div class="btn">
+          <%= link_to current_user.nickname, "#", class: "btn-handwriting" %>
+        </div>
+
+        <div class="btn">
+          <%= link_to "LogOut", destroy_user_session_path, class: "btn-handwriting", method: :delete %>
+        </div>
+        <% elsif admin_signed_in?%> 
+          <%= link_to "Degain", new_item_path, class: "btn-handwriting"%>
+          <%= link_to "LogOut", destroy_admin_session_path, class: "btn-handwriting", method: :delete %>
+        <% else %>
+
+        <div class="btn">
+          <%= link_to 'Loin', new_user_session_path, class: "btn-handwriting" %>
+        </div>
+
+        <div class="btn">
+          <%= link_to 'SignUp', new_user_registration_path, class: "btn-handwriting" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="side-null"></div>
+
+    <main class="container_main">
+      <!-- product list-->
+      <div class="product-list">
+        <h2>PRODUCT</h2>
+        <div class="cards">
+            <% @item.each do |item|%>
+              <div class="cards__item">
+              <%=link_to item_orders_path(item.id) do%>
+                <%= image_tag item.image, class: "img"%>
+                <div class="mask">
+                  <div class="caption">
+                    <p><%=item.name%></p>
+                    <p>¥<%=item.price%></p>
+                  </div>
+                </div>
+              </div>
+              <%end%>
+            <%end%>
+            
+        </div>
+      </div>
+
+      <footer>
+          <div class="copyright">
+            <p>© 2021 - Empreintes</p>
+          </div>
+          <div class="sns">
+            <a href="#" class="contact">Contact</a>
+            <a href="#" class="fb"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></a>
+            <a href="#" class="tw"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></a>
+            <a href="#" class="insta"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></a>
+          </div>
+        </footer>
+
+    </main>
+    
+</div>

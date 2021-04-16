@@ -1,0 +1,77 @@
+<div class="container">
+    <!-- Sidebar -->
+    <div class="container__sidebar">
+      <h1><a href="/" class="logo">Empreintes</a></h1>
+      <ul>
+        <li><%= link_to 'PRODUCT', product_items_path, method: :get, class: "sec" %></li>
+        <li><a href="/" class="sec">VISION</a></li>
+        <li><a href="/" class="sec">ABOUT</a></li>
+        <li><a href="/" class="sec">GALLERY</a></li>
+      </ul>
+
+      <div class="btn-wrap">
+        <% if user_signed_in? %>
+        <div class="btn">
+          <%= link_to current_user.nickname, "#", class: "btn-handwriting" %>
+        </div>
+
+        <div class="btn">
+          <%= link_to "LogOut", destroy_user_session_path, class: "btn-handwriting", method: :delete %>
+        </div>
+        <% elsif admin_signed_in?%> 
+          <%= link_to "Degain", new_item_path, class: "btn-handwriting"%>
+          <%= link_to "LogOut", destroy_admin_session_path, class: "btn-handwriting", method: :delete %>
+        <% else %>
+
+        <div class="btn">
+          <%= link_to 'Loin', new_user_session_path, class: "btn-handwriting" %>
+        </div>
+
+        <div class="btn">
+          <%= link_to 'SignUp', new_user_registration_path, class: "btn-handwriting" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="side-null"></div>
+
+    <main class="container_main">
+
+      <div class="form">
+        <h2 class="sign">Sign up</h2>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+
+          <div class="field">
+            <%= f.label :nickname %><br />
+            <%= f.text_field :nickname, autofocus: true , class:"input"%>
+          </div>
+
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class:"input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up", class:"button"  %>
+          </div>
+        <% end %>
+
+        <%= render "users/shared/links" %>
+      </div>
+    </main>
+</div>
