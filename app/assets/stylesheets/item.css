@@ -236,6 +236,8 @@ footer {
 	margin-top: 100px;
 	background-color: rgb(197, 197, 197);
 	box-shadow: 0 -3px 3px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  bottom: 0;
 }
 footer .copyright {
 	float: left;
